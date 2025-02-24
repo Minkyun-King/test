@@ -14,14 +14,10 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          service:
-            name: {{.Values.hmsHipomService.front.service.name}}
-            port:
-              number: 80
+          serviceName: {{.Values.hmsHipomService.front.service.name}}
+          servicePort: 80
       - path: /
         pathType: Prefix
         backend:
-          service:
-            name: {{.Values.hmsHipomService.back.service.name}}
-            port:
-              number: 8093
+          serviceName: {{.Values.hmsHipomService.back.service.name}}
+          servicePort: 8093

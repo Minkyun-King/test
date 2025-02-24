@@ -8,7 +8,7 @@ hmsHipomService:
     name: front
     label: front-service
     containerName: front-service
-    replicaCount: 2
+    replicaCount: 1
     image:
       name: 541712156206.dkr.ecr.ap-northeast-2.amazonaws.com/hgs-hipom-v4-frontend-repository
       tag: |
