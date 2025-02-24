@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.quizItService.front.service.name}}
+  name: {{.Values.hmsHipomService.front.service.name}}
 spec:
   selector:
-    app: {{.Values.quizItService.front.service.label}}
+    app: {{.Values.hmsHipomService.front.service.label}}
   ports:
   - name: http
     port: 80
