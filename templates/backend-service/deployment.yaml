@@ -18,3 +18,6 @@ spec:
         name: {{.Values.hmsHipomService.back.containerName}}
         ports:
         - containerPort: 8093
+        env:
+        - name: which
+          value: "onshore-dev"
