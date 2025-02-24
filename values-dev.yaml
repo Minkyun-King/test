@@ -29,13 +29,13 @@ hmsHipomService:
       name: backend-service
       label: backend-service
 ingress:
-  - name: front
+  front:
     className: alb
     annotations:
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/target-type: ip
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
-  - name: back
+  back:
     className: alb
     annotations:
       alb.ingress.kubernetes.io/scheme: internet-facing
