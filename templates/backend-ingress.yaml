@@ -1,0 +1,21 @@
+{{- range .Values.ingress. }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hms-{{.Values.env}}-alb
+  {{- with .Values.ingress.back.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{.Values.hmsHipomService.back.service.name}}
+            port:
+              number: 8093
