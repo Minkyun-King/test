@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}-{{.Values.hmsHipomService.back.name}}-deploy
+spec:
+  selector:
+    matchLabels:
+      app: {{.Values.hmsHipomService.back.label}}
+  replicas: {{ .Values.hmsHipomService.back.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.hmsHipomService.back.label}}
+    spec:
+      containers:
+      - image: {{.Values.hmsHipomService.back.image.name}}:{{.Values.hmsHipomService.back.image.tag}}
+        imagePullPolicy: Always
+        name: {{.Values.hmsHipomService.back.containerName}}
+        ports:
+        - containerPort: 8093

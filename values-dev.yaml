@@ -1,0 +1,38 @@
+# Default dev-values for quizit.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+env: dev
+hmsHipomService:
+  front:
+    name: front
+    label: front-service
+    containerName: front-service
+    replicaCount: 1
+    image:
+      name: 541712156206.dkr.ecr.ap-northeast-2.amazonaws.com/hgs-hipom-v4-frontend-repository
+      tag: |
+        0d7f448ce8d26ab7efa64b62c061ce076d2fe2e7
+    service:
+      name: front-service
+      label: front-service
+  back:
+    name: back
+    label: backend-service
+    containerName: backend-service
+    replicaCount: 1
+    image:
+      name: 541712156206.dkr.ecr.ap-northeast-2.amazonaws.com/hgs-hipom-v4-backend-repository
+      tag: |
+        d8b18ec053c4ccfbaa5cd05efb9d6a9c37ef89db
+    service:
+      name: backend-service
+      label: backend-service
+ingress:
+  className: alb
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:712744100487:certificate/8c25da53-7ba2-44f7-8c1c-e454de897be8
+    # alb.ingress.kubernetes.io/ssl-redirect: "443"

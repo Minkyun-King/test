@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.hmsHipomService.back.service.name}}
+spec:
+  selector:
+    app: {{.Values.hmsHipomService.back.service.label}}
+  ports:
+  - name: http
+    port: 8093
+    targetPort: 8093
+  type: ClusterIP
