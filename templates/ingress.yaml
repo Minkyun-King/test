@@ -18,3 +18,10 @@ spec:
             name: {{.Values.hmsHipomService.front.service.name}}
             port:
               number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{.Values.hmsHipomService.back.service.name}}
+            port:
+              number: 8093
